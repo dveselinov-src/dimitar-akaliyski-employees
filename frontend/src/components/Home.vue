@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Employees cooperation analysis</h1>
+    <p>Who are the two employees who cooperated the longest in this dataset?</p>
     <form @submit.prevent="handleSubmit">
       <input type="file" accept=".csv" @change="handleFileChange"/>
       <button type="submit" :disabled="!file">Upload .csv file</button>
@@ -50,7 +51,6 @@ export default {
         });
         const data = await response.json();
         if (response.ok) {
-          console.log(data);
           this.result = data.result;
           this.commonProjects = data.result.commonProjects;
           this.error = null;

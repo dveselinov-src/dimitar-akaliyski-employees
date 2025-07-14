@@ -7,8 +7,6 @@ require 'vendor/autoload.php';
 
 use League\Csv\Reader;
 
-//https://csv.thephpleague.com/
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //is there a file
     if (!isset($_FILES['emp_coop_file'])) {
@@ -59,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $employeeProjectsC = $employeeProjects;
             $pairCoopDays = [];
-            //var_dump($employeeProjects);
             foreach ($employeeProjects as $emp1 => $projects1) {
                 foreach ($employeeProjectsC as $emp2 => $projects2) {
                     //if same emp, move on
@@ -76,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 //from the date of the second person joining the project, to the date of the first person leaving it
                                 $start = max($date1['DateFrom'], $date2['DateFrom']);
                                 $end = min($date1['DateTo'], $date2['DateTo']);
-                                //var_dump($emp1, $emp2, $projectId, $start, $end);
                                 if ($start <= $end) {
                                     $days = $start->diff($end)->days + 1;   //+1 to include the end day
 
@@ -96,7 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
             }
-            //var_dump($pairCoopDays);
             $maxDays = 0;
             $result = null;
             foreach ($pairCoopDays as $pair) {
@@ -110,7 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo json_encode(['error' => 'Data does not include pairs!']);
                 exit;
             }
-            //var_dump($result);
             echo json_encode(['result' => $result]);
 
         } else {
