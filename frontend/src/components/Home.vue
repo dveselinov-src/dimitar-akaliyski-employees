@@ -21,7 +21,6 @@
 
 <script>
 import DataGrid from './DataGrid.vue';
-
 export default {
   components: {DataGrid},
   data() {
