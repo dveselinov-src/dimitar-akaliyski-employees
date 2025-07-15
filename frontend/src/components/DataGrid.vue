@@ -1,5 +1,5 @@
 <template>
-  <h1>HTML table</h1>
+  <p>Solution 1: HTML table</p>
   <table>
     <thead>
     <tr>
@@ -19,8 +19,7 @@
     </tbody>
   </table>
   <div>
-    <p>AG DataGrid plugin</p>
-    <!-- The AG Grid component -->
+    <p>Solution 2: AG DataGrid plugin (can order by column)</p>
     <ag-grid-vue
         :rowData="rowData"
         :columnDefs="colDefs"

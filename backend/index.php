@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: *');       //not sure how to set this up for a local dev build
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -55,10 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'DateTo' => new DateTime($row['DateTo']),
                 ];
             }
-            $employeeProjectsC = $employeeProjects;
             $pairCoopDays = [];
             foreach ($employeeProjects as $emp1 => $projects1) {
-                foreach ($employeeProjectsC as $emp2 => $projects2) {
+                foreach ($employeeProjects as $emp2 => $projects2) {
                     //if same emp, move on
                     if ($emp1 >= $emp2)
                         continue;

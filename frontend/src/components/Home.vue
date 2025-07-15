@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>Employees cooperation analysis</h1>
+    <hr>
+    <p><b>Task: Pair of employees who have worked together</b></p>
     <p>Who are the two employees who cooperated the longest in this dataset?</p>
     <form @submit.prevent="handleSubmit">
       <input type="file" accept=".csv" @change="handleFileChange"/>
@@ -9,11 +11,13 @@
     <p v-if="error" style="color: red;">{{ error }}</p>
     <div v-if="result">
       <h2>Result</h2>
-      <p>First Employee ID:     {{ result['emp1'] }}</p>
-      <p>Second Employee ID:    {{ result['emp2'] }}</p>
+      <p>First Employee ID: {{ result['emp1'] }}</p>
+      <p>Second Employee ID: {{ result['emp2'] }}</p>
       <p>Days working together on common projects: {{ result['days'] }}</p>
-
-      <h2>Common Projects for employees {{ result['emp1'] }} and {{ result['emp2'] }}</h2>
+      <br/>
+      <br/>
+      <hr>
+      <p><b>Bonus Task: Common Projects for employees {{ result['emp1'] }} and {{ result['emp2'] }}</b></p>
       <DataGrid :data="commonProjects"/>
     </div>
   </div>
@@ -21,6 +25,7 @@
 
 <script>
 import DataGrid from './DataGrid.vue';
+
 export default {
   components: {DataGrid},
   data() {
@@ -75,14 +80,14 @@ form {
 
 button {
   padding: 10px;
-  background-color: #007bff;
+  background-color: blue;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:disabled {
-  background-color: #cccccc;
+  background-color: red;
   cursor: not-allowed;
 }
 </style>
