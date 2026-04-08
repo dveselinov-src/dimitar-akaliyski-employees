@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './components/Home.vue';
+import UnitTests from './components/UnitTests.vue';
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', redirect: '/analysis' },
+  { path: '/analysis', component: Home },
+  { path: '/unit-tests', component: UnitTests },
 ];
 
 const router = createRouter({

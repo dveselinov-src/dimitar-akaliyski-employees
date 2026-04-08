@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <h1>Employees cooperation analysis</h1>
     <hr>
     <p><b>Task: Pair of employees who have worked together</b></p>
@@ -76,6 +76,10 @@ export default {
 <style scoped>
 form {
   margin: 20px 0;
+}
+
+.page {
+  max-width: 980px;
 }
 
 button {
